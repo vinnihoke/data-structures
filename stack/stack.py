@@ -10,16 +10,90 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
+
+# LIFO
+
+
+# class Stack:
+#     def __init__(self, storage=None):
+#         self.size = 0
+#         self.storage = [] if storage == None else storage
+
+#     def __len__(self):
+#         if self.size < 0:
+#             self.size = 0
+#         return self.size
+
+#     def push(self, value):
+#         self.size += 1
+#         return self.storage.append(value)
+
+#     def pop(self):
+#         self.size -= 1
+#         if len(self.storage) == 0:
+#             return None
+#         else:
+#             item = self.storage.pop()
+#             return item
+
+
+class Node:
+    def __init__(self, value=None, next_node=None):
+        self.value = value
+        self.next_node = next_node
+
+    def get_value(self):
+        return self.value
+
+    def get_next(self):
+        return self.next_node
+
+    def set_next(self, new_next):
+        self.next_node = new_next
+
+
 class Stack:
     def __init__(self):
+        self.head = None
         self.size = 0
-        # self.storage = ?
+        self.storage = []
 
     def __len__(self):
-        pass
+        if self.size < 0:
+            self.size = 0
+        return self.size
 
     def push(self, value):
-        pass
+        self.size += 1
+        new_node = Node(value)
+        if not self.head:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.get_next() is not None:
+                current = current.get_next()
+            current.set_next(new_node)
 
     def pop(self):
-        pass
+        self.size -= 1
+        if not self.head:
+            return None
+        else:
+            value = self.head.get_value()
+            self.head = self.head.get_next()
+            return value
+
+
+test = Stack()
+
+
+print(test.head)
+test.push(1)
+print(test.head)
+test.push(2)
+print(test.head)
+test.push(3)
+print(test.head)
+print(test.pop())  # ! Outputting 1
+print(test.pop())  # ! Outputting 2
+print(test.pop())  # ! Outputting 3
