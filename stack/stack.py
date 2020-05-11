@@ -55,31 +55,39 @@ class Node:
 class Stack:
     def __init__(self):
         self.head = None
+        self.tail = None
         self.size = 0
-        self.storage = []
 
     def __len__(self):
         if self.size < 0:
             self.size = 0
         return self.size
 
+    # Beg
     def push(self, value):
         self.size += 1
         new_node = Node(value)
         if not self.head:
             self.head = new_node
         else:
+            self.tail = self.head
             current = self.head
             while current.get_next() is not None:
                 current = current.get_next()
+                tail = current
             current.set_next(new_node)
 
+    # Beg
     def pop(self):
-        self.size -= 1
+        # what if the list is empty?
         if not self.head:
             return None
+        # what if it isn't empty?
         else:
+            # we want to return the value at the current head
             value = self.head.get_value()
+            # remove the value at the head
+            # update self.head
             self.head = self.head.get_next()
             return value
 
