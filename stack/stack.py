@@ -14,27 +14,27 @@ return elements in Last In First Out order.
 # LIFO
 
 
-# class Stack:
-#     def __init__(self, storage=None):
-#         self.size = 0
-#         self.storage = [] if storage == None else storage
+class Stack:
+    def __init__(self, storage=None):
+        self.size = 0
+        self.storage = [] if storage == None else storage
 
-#     def __len__(self):
-#         if self.size < 0:
-#             self.size = 0
-#         return self.size
+    def __len__(self):
+        if self.size < 0:
+            self.size = 0
+        return self.size
 
-#     def push(self, value):
-#         self.size += 1
-#         return self.storage.append(value)
+    def push(self, value):
+        self.size += 1
+        return self.storage.append(value)
 
-#     def pop(self):
-#         self.size -= 1
-#         if len(self.storage) == 0:
-#             return None
-#         else:
-#             item = self.storage.pop()
-#             return item
+    def pop(self):
+        self.size -= 1
+        if len(self.storage) == 0:
+            return None
+        else:
+            item = self.storage.pop()
+            return item
 
 
 class Node:
