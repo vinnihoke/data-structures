@@ -70,26 +70,27 @@ class Stack:
         if not self.head:
             self.head = new_node
         else:
-            self.tail = self.head
             current = self.head
             while current.get_next() is not None:
                 current = current.get_next()
-                tail = current
             current.set_next(new_node)
+            self.tail = new_node
 
     # Beg
     def pop(self):
-        # what if the list is empty?
+        self.size -= 1
         if not self.head:
             return None
-        # what if it isn't empty?
         else:
-            # we want to return the value at the current head
-            value = self.head.get_value()
-            # remove the value at the head
-            # update self.head
-            self.head = self.head.get_next()
-            return value
+            value = self.head
+            for i in range(self.size):
+                value = value.get_next()
+            self.tail = value.get_value()
+            if self.tail == self.head.get_value():
+                lastValue = self.head
+                self.head = None
+                return lastValue.get_value()
+            return value.get_value()
 
 
 test = Stack()
@@ -102,6 +103,6 @@ test.push(2)
 print(test.head)
 test.push(3)
 print(test.head)
-print(test.pop())  # ! Outputting 1
-print(test.pop())  # ! Outputting 2
-print(test.pop())  # ! Outputting 3
+print(test.pop())
+print(test.pop())
+print(test.pop())
