@@ -76,7 +76,7 @@ class DLL:
         # Record and return the current node's value as part of spec
         value = self.head.value
 
-        # Fire the remove method on the Node class.
+        # Fire the delete method on the DLL class.
         self.delete(self.head)
         return value
 
@@ -109,7 +109,7 @@ class DLL:
         # Record and return the current node's value as part of spec
         value = self.tail.value
 
-        # Fire the remove method on the Node class.
+        # Fire the delete method on the DLL class.
         self.delete(self.tail)
         return value
 

@@ -1,6 +1,6 @@
 import unittest
-from dll import Node
-from dll import DLL
+from dll2 import Node
+from dll2 import DLL
 
 
 class DLLTests(unittest.TestCase):
