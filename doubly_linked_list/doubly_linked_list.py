@@ -3,10 +3,10 @@ as well as its next node in the List."""
 
 
 class ListNode:
-    def __init__(self, value, next=None, prev=None):
+    def __init__(self, value, prev=None, next=None):
         self.value = value
-        self.next = next
         self.prev = prev
+        self.next = next
 
     """Wrap the given value in a Node and insert it
     after this node. Note that this node could already
@@ -149,8 +149,6 @@ class DoublyLinkedList:
     """Returns the highest value currently in the list"""
 
     def get_max(self):
-        # ? How to get max?
-
         # Create a current iterator for while loop
         current = self.head
 
