@@ -33,9 +33,6 @@ class Node:
         if self.next:
             self.next.prev = self.prev
 
-    def value(self):
-        return self.value
-
 
 class DLL:
     def __init__(self, node=None):
