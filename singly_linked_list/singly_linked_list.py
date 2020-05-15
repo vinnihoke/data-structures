@@ -48,7 +48,7 @@ class LinkedList:
             head = self.head
             # delete the list's head reference
             self.head = None
-            # also make sure the tail reference doesn't refer to anything
+            # ? also make sure the tail reference doesn't refer to anything
             self.tail = None
             # return the value
             return head.get_value()
